@@ -1,0 +1,78 @@
+{
+  "plugins": ["import", "react", "@typescript-eslint", "css"],
+  "extends": ["next/core-web-vitals", "eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended", "plugin:css/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    
+    // General
+    "indent": ["error", 2],
+    "semi": ["error", "never"],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "double"],
+    
+    "no-console": "warn",
+    "no-debugger": "warn",
+    
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["parent", "sibling", "index"],
+          "unknown"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "{react,next/**}",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@/**",
+            "group": "internal"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always"
+      }
+    ],
+    
+    // React
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    
+    // Typescript
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
+    ],
+    
+    // CSS
+    "css/no-dupe-properties": "error",
+    "css/no-invalid-color-hex": "error",
+    "css/no-shorthand-property-overrides": "error",
+    "css/no-unknown-property": "error",
+    "css/no-unknown-unit": "error"
+  }
+}
